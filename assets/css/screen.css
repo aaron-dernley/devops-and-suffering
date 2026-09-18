@@ -1,0 +1,517 @@
+/* ==========================================================================
+   DevOps and Suffering — theme stylesheet
+   Dark, minimal, technical. JetBrains Mono for chrome, Inter Tight for body.
+   ========================================================================== */
+
+:root {
+    --color-bg: #0b0d10;
+    --color-bg-raised: #14171b;
+    --color-bg-terminal: #0e1013;
+    --color-border: #23272d;
+    --color-text: #e8e8e6;
+    --color-text-muted: #8a8f98;
+    --color-text-dim: #5c6169;
+    --color-accent: #f0a63c;
+    --color-accent-dim: #a97527;
+    --color-red: #e5534b;
+    --color-green: #3fb950;
+
+    --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --font-body: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    --wrap-width: 760px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--color-bg);
+}
+
+body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+    max-width: var(--wrap-width);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--color-text);
+    margin: 0 0 0.5em;
+}
+
+/* -- Site header --------------------------------------------------------- */
+
+.site-header {
+    border-bottom: 1px solid var(--color-border);
+    padding: 40px 0 28px;
+}
+
+.site-header-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.site-logo,
+.site-logo:hover {
+    text-decoration: none;
+}
+
+.site-logo-text {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+}
+
+.site-logo img {
+    max-height: 40px;
+}
+
+.site-tagline {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+.site-nav {
+    margin-top: 6px;
+}
+
+.site-nav a {
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    margin: 0 10px;
+}
+
+.site-nav a:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+/* -- Hero / terminal ------------------------------------------------------ */
+
+.hero {
+    padding: 56px 0 40px;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 2rem;
+    margin-bottom: 0.3em;
+}
+
+.hero-tagline {
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    margin: 0 0 32px;
+}
+
+.terminal {
+    text-align: left;
+    background: var(--color-bg-terminal);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px -30px rgba(0, 0, 0, 0.8);
+}
+
+.terminal-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 14px;
+    background: var(--color-bg-raised);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.terminal-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.terminal-dot-red { background: #ff5f57; }
+.terminal-dot-amber { background: #febc2e; }
+.terminal-dot-green { background: #28c840; }
+
+.terminal-titlebar-label {
+    margin-left: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--color-text-dim);
+}
+
+.terminal-body {
+    margin: 0;
+    padding: 18px 20px 22px;
+    min-height: 130px;
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.terminal-cursor {
+    display: inline-block;
+    color: var(--color-accent);
+    animation: terminal-blink 1s step-end infinite;
+}
+
+@keyframes terminal-blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .terminal-cursor { animation: none; }
+}
+
+/* -- Post feed / cards ----------------------------------------------------- */
+
+.post-feed {
+    padding: 8px 0 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.post-card {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 28px;
+}
+
+.post-card:last-child {
+    border-bottom: none;
+}
+
+.post-card-link,
+.post-card-link:hover {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.post-card-image {
+    margin-bottom: 14px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.post-card-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    margin-bottom: 6px;
+}
+
+.post-card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.4em;
+}
+
+.post-card-link:hover .post-card-title {
+    color: var(--color-accent);
+}
+
+.post-card-excerpt {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    margin: 0 0 10px;
+}
+
+.post-card-meta {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--color-text-dim);
+    display: flex;
+    gap: 12px;
+}
+
+/* -- Single post / page ----------------------------------------------------- */
+
+.post {
+    padding: 48px 0 64px;
+}
+
+.post-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+}
+
+.post-title {
+    font-size: 2rem;
+    margin-bottom: 0.4em;
+}
+
+.post-meta {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--color-text-dim);
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.post-feature-image {
+    margin: 0 0 32px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.post-content {
+    font-size: 1.05rem;
+}
+
+.post-content > * + * {
+    margin-top: 1.3em;
+}
+
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+    margin-top: 1.8em;
+}
+
+.post-content a {
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent-dim);
+}
+
+.post-content blockquote {
+    margin: 0;
+    padding-left: 18px;
+    border-left: 3px solid var(--color-accent);
+    color: var(--color-text-muted);
+}
+
+.post-content code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: var(--color-bg-raised);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+}
+
+.post-content pre {
+    background: var(--color-bg-terminal);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    overflow-x: auto;
+}
+
+.post-content pre code {
+    background: none;
+    padding: 0;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.post-content img {
+    border-radius: 8px;
+}
+
+.post-content hr {
+    border: none;
+    border-top: 1px solid var(--color-border);
+}
+
+.post-content table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+
+.post-content th,
+.post-content td {
+    border: 1px solid var(--color-border);
+    padding: 8px 10px;
+    text-align: left;
+}
+
+.post-tags {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.post-tags a {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 4px 12px;
+}
+
+.post-tags a:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent-dim);
+    text-decoration: none;
+}
+
+/* -- Archive headers (tag/author) -------------------------------------------- */
+
+.archive-header {
+    padding: 48px 0 32px;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 32px;
+}
+
+.archive-kicker {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin-bottom: 6px;
+}
+
+.archive-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.3em;
+}
+
+.archive-description {
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+/* -- Pagination -------------------------------------------------------------- */
+
+.pagination {
+    max-width: var(--wrap-width);
+    margin: 0 auto;
+    padding: 0 24px 56px;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+.pagination a {
+    color: var(--color-text-muted);
+}
+
+.pagination a:hover {
+    color: var(--color-accent);
+}
+
+/* -- Error page ---------------------------------------------------------------- */
+
+.error-page {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.error-code {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: 0.2em;
+}
+
+.error-title {
+    font-size: 1.3rem;
+}
+
+.error-message {
+    color: var(--color-text-muted);
+}
+
+.error-home-link {
+    display: inline-block;
+    margin-top: 24px;
+    font-family: var(--font-mono);
+}
+
+/* -- Footer --------------------------------------------------------------------- */
+
+.site-footer {
+    border-top: 1px solid var(--color-border);
+    padding: 28px 0 40px;
+}
+
+.site-footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-text-dim);
+}
+
+.site-footer a {
+    color: var(--color-text-dim);
+}
+
+.site-footer a:hover {
+    color: var(--color-accent);
+}
+
+/* -- Responsive ------------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+    body { font-size: 16px; }
+    .hero-title { font-size: 1.6rem; }
+    .post-title { font-size: 1.6rem; }
+    .terminal-body { font-size: 0.8rem; }
+}

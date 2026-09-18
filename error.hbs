@@ -1,0 +1,14 @@
+{{!< default}}
+
+<section class="error-page wrap">
+    {{#is "404"}}
+        <span class="error-code">404</span>
+        <h1 class="error-title">Page not found</h1>
+        <p class="error-message">Whatever you're looking for isn't here. Consistent with everything else.</p>
+    {{else}}
+        <span class="error-code">{{code}}</span>
+        <h1 class="error-title">{{message}}</h1>
+        <p class="error-message">Something broke. It's probably not your fault.</p>
+    {{/is}}
+    <a class="error-home-link" href="{{@site.url}}">&larr; Back to safety</a>
+</section>

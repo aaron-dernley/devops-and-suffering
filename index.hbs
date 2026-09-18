@@ -1,0 +1,24 @@
+{{!< default}}
+
+<section class="hero wrap">
+    <h1 class="hero-title">{{@site.title}}</h1>
+    <p class="hero-tagline">{{@site.description}}</p>
+
+    <div class="terminal" aria-hidden="true">
+        <div class="terminal-titlebar">
+            <span class="terminal-dot terminal-dot-red"></span>
+            <span class="terminal-dot terminal-dot-amber"></span>
+            <span class="terminal-dot terminal-dot-green"></span>
+            <span class="terminal-titlebar-label">status.sh</span>
+        </div>
+        <pre class="terminal-body"><code id="terminal-output"></code><span class="terminal-cursor">&#9608;</span></pre>
+    </div>
+</section>
+
+<section class="post-feed wrap">
+    {{#foreach posts}}
+        {{> post-card}}
+    {{/foreach}}
+</section>
+
+{{pagination}}

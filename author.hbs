@@ -1,0 +1,17 @@
+{{!< default}}
+
+<header class="archive-header wrap">
+    <span class="archive-kicker">Author</span>
+    <h1 class="archive-title">{{author.name}}</h1>
+    {{#if author.bio}}
+        <p class="archive-description">{{author.bio}}</p>
+    {{/if}}
+</header>
+
+<section class="post-feed wrap">
+    {{#foreach posts}}
+        {{> post-card}}
+    {{/foreach}}
+</section>
+
+{{pagination}}

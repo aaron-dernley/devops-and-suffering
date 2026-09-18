@@ -1,0 +1,17 @@
+{{!< default}}
+
+<header class="archive-header wrap">
+    <span class="archive-kicker">Tag</span>
+    <h1 class="archive-title">{{tag.name}}</h1>
+    {{#if tag.description}}
+        <p class="archive-description">{{tag.description}}</p>
+    {{/if}}
+</header>
+
+<section class="post-feed wrap">
+    {{#foreach posts}}
+        {{> post-card}}
+    {{/foreach}}
+</section>
+
+{{pagination}}
