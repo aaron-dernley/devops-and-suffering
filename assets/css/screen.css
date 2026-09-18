@@ -127,19 +127,8 @@ h1, h2, h3, h4 {
 /* -- Hero / terminal ------------------------------------------------------ */
 
 .hero {
-    padding: 56px 0 40px;
+    padding: 32px 0 40px;
     text-align: center;
-}
-
-.hero-title {
-    font-size: 2rem;
-    margin-bottom: 0.3em;
-}
-
-.hero-tagline {
-    color: var(--color-text-muted);
-    font-family: var(--font-mono);
-    margin: 0 0 32px;
 }
 
 .terminal {
@@ -531,7 +520,6 @@ h1, h2, h3, h4 {
 
 @media (max-width: 600px) {
     body { font-size: 16px; }
-    .hero-title { font-size: 1.6rem; }
     .post-title { font-size: 1.6rem; }
     .terminal-body { font-size: 0.8rem; }
 }
