@@ -2,9 +2,8 @@
 
 A dark, minimal, technical Ghost theme for **DevOps and Suffering**. JetBrains
 Mono for headings/chrome, Inter Tight for body text, one amber accent color,
-and an original terminal-style typewriter animation on the homepage hero
-(cycles through a handful of mock status lines — no JS dependency, respects
-`prefers-reduced-motion`).
+and a static terminal window on the homepage hero — "Hello there" with a
+blinking block cursor (pure CSS `@keyframes`, no JS at all).
 
 This theme was written from scratch — inspired by the general aesthetic of
 dark/editorial Ghost themes, but no code was copied from any other theme.
@@ -12,8 +11,8 @@ dark/editorial Ghost themes, but no code was copied from any other theme.
 ## Structure
 
 ```
-default.hbs           ← base HTML layout (fonts, screen.css, main.js)
-index.hbs              ← home page (hero + terminal + post list)
+default.hbs           ← base HTML layout (fonts, screen.css)
+index.hbs              ← home page (hero terminal + post list)
 post.hbs                ← single post
 page.hbs                 ← static pages (About, etc.)
 tag.hbs, author.hbs       ← archive views
@@ -26,7 +25,6 @@ partials/
 
 assets/
   css/screen.css                  ← the whole design system
-  js/main.js                        ← terminal typewriter effect
 
 package.json                          ← Ghost theme metadata
 ```
